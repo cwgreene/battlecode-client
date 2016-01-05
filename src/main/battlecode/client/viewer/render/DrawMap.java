@@ -23,6 +23,8 @@ public class DrawMap {
     private final int subtileHeight = 4; // 4 x 4
     private final int roadTileCount = 3; // empty, full, rounded
 
+    private boolean currentlyDetailedMap = true;
+
     public DrawMap(battlecode.world.GameMap map) {
         mapWidth = map.getWidth();
         mapHeight = map.getHeight();
@@ -31,18 +33,30 @@ public class DrawMap {
 
         //FIXME: commented out for now
 //    if (!RenderConfiguration.getInstance().isTournamentMode()) {
-        prerenderMap(map);
+        prerenderMap();
 //    }
         gridStroke = new BasicStroke(0.3f / RenderConfiguration.getInstance()
                 .getSpriteSize());
 
     }
 
-    public void prerenderMap(battlecode.world.GameMap m) {
+    public void prerenderMap() {
         Graphics2D g2 = prerender.createGraphics();
-        g2.setColor(new Color(170, 170, 170));
-        g2.fillRect(0, 0, mapWidth * locPixelWidth, mapHeight * locPixelWidth);
-
+        if (RenderConfiguration.showDetails()) {
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER));
+            for (int x = 0; x < mapWidth; x += mapBG.getWidth() / locPixelWidth) {
+                for (int y = 0; y < mapHeight; y += mapBG.getHeight() /
+                        locPixelWidth) {
+                    g2.drawImage(mapBG, null, x * locPixelWidth, y * locPixelWidth);
+                }
+            }
+            currentlyDetailedMap = true;
+        } else {
+            g2.setColor(new Color(170, 170, 170));
+            g2.fillRect(0, 0, mapWidth * locPixelWidth, mapHeight *
+                    locPixelWidth);
+            currentlyDetailedMap = false;
+        }
         g2.dispose();
     }
 
@@ -55,6 +69,10 @@ public class DrawMap {
     }
 
     public void draw(Graphics2D g2, DrawState ds) {
+        if (currentlyDetailedMap != RenderConfiguration.showDetails()) {
+            prerenderMap();
+            System.out.println("Prerender");
+        }
         AffineTransform pushed = g2.getTransform();
 
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER));

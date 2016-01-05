@@ -55,7 +55,7 @@ public abstract class BaseRenderer {
 
         switch (actionCommand) {
             case 'A':
-                RenderConfiguration.toggleSpawnRadii();
+                RenderConfiguration.toggleSimple();
                 break;
             case 'B':
                 RenderConfiguration.toggleBroadcast();
