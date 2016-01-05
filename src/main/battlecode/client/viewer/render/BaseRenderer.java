@@ -103,7 +103,7 @@ public abstract class BaseRenderer {
                 RenderConfiguration.toggleSupplyTransfers();
                 break;
             case 'U':
-                RenderConfiguration.toggleCows();
+                RenderConfiguration.toggleParts();
                 break;
             case 'V':
                 RenderConfiguration.toggleIndicatorDots();

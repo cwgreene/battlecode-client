@@ -35,8 +35,6 @@ public class DrawObject extends AbstractDrawObject {
             ("art/hatch_sensor.png");
     private static final ImageFile hatchAttack = new ImageFile
             ("art/hatch_attack.png");
-    private static final ImageFile creepRed = new ImageFile("art/creep1.png");
-    private static final ImageFile creepBlue = new ImageFile("art/creep2.png");
     private ImageFile img;
 
     public static final Animation.AnimationType[] preDrawOrder = new
@@ -173,14 +171,6 @@ public class DrawObject extends AbstractDrawObject {
         if (layer == 0) {
             if (RenderConfiguration.showRangeHatch() && focused) {
                 drawRangeHatch(g2);
-            }
-            if (info.type.isBuilding) {
-                AffineTransform pushed0 = g2.getTransform();
-                g2.translate(getDrawX(), getDrawY());
-                drawImageTransformed(g2, new AffineTransform(),
-                        (info.team == Team.A ? creepRed.image
-                                : creepBlue.image), 2);
-                g2.setTransform(pushed0); // pop
             }
         }
         if (layer == 1) {
