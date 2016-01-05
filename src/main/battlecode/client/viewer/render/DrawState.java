@@ -547,13 +547,15 @@ public class DrawState extends GameState {
                     g2.fillRect(x, y, 1, 1);
                 }
 
-                // draw a dot with radius depending on how many parts there are
-                if (parts.get(i, j) > 0) {
-                    double radius = Math.max(0.2, Math.min(1.0, parts.get(i,
-                            j) / 100)) * 0.3;
-                    g2.setColor(new Color(0.5f, 0.15f, 0.8f, 0.8f));
-                    g2.fill(new Ellipse2D.Double(x + 0.5 - radius, y + 0.5 -
-                            radius, radius * 2, radius * 2));
+                if (RenderConfiguration.showParts()) {
+                    // draw a dot with radius depending on how many parts there are
+                    if (parts.get(i, j) > 0) {
+                        double radius = Math.max(0.2, Math.min(1.0, parts.get(i,
+                                j) / 100)) * 0.3;
+                        g2.setColor(new Color(255, 140, 25, 200));
+                        g2.fill(new Ellipse2D.Double(x + 0.5 - radius, y + 0.5 -
+                                radius, radius * 2, radius * 2));
+                    }
                 }
             }
         }
