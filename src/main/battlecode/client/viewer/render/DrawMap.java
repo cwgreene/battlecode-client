@@ -5,6 +5,7 @@ import battlecode.client.util.ImageFile;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Line2D;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 
 public class DrawMap {
@@ -39,14 +40,8 @@ public class DrawMap {
 
     public void prerenderMap(battlecode.world.GameMap m) {
         Graphics2D g2 = prerender.createGraphics();
-        g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER));
-
-        for (int x = 0; x < mapWidth; x += mapBG.getWidth() / locPixelWidth) {
-            for (int y = 0; y < mapHeight; y += mapBG.getHeight() /
-                    locPixelWidth) {
-                g2.drawImage(mapBG, null, x * locPixelWidth, y * locPixelWidth);
-            }
-        }
+        g2.setColor(new Color(170, 170, 170));
+        g2.fillRect(0, 0, mapWidth * locPixelWidth, mapHeight * locPixelWidth);
 
         g2.dispose();
     }

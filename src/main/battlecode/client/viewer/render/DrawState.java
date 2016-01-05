@@ -552,7 +552,7 @@ public class DrawState extends GameState {
                     if (parts.get(i, j) > 0) {
                         double radius = Math.max(0.2, Math.min(1.0, parts.get(i,
                                 j) / 100)) * 0.3;
-                        g2.setColor(new Color(255, 140, 25, 200));
+                        g2.setColor(new Color(255, 140, 25, 255));
                         g2.fill(new Ellipse2D.Double(x + 0.5 - radius, y + 0.5 -
                                 radius, radius * 2, radius * 2));
                     }
