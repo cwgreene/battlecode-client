@@ -71,7 +71,6 @@ public class DrawMap {
     public void draw(Graphics2D g2, DrawState ds) {
         if (currentlyDetailedMap != RenderConfiguration.showDetails()) {
             prerenderMap();
-            System.out.println("Prerender");
         }
         AffineTransform pushed = g2.getTransform();
 
