@@ -532,15 +532,15 @@ public class DrawState extends GameState {
                 // fill a tile with alpha based on how much rubble there is
                 float lum;
                 if (rubble.get(i, j) < GameConstants.RUBBLE_SLOW_THRESH) {
-                    lum = 0.3f;
+                    lum = 0.1f;
                 } else if (rubble.get(i, j) < GameConstants
                         .RUBBLE_OBSTRUCTION_THRESH) {
-                    lum = 0.4f;
+                    lum = 0.3f;
                 } else if (rubble.get(i, j) < GameConstants
                         .RUBBLE_OBSTRUCTION_THRESH * 2) {
                     lum = 0.5f;
                 } else {
-                    lum = 0.6f;
+                    lum = 0.7f;
                 }
                 if (rubble.get(i, j) > 0) {
                     g2.setColor(new Color(0, 0, 0, lum));
