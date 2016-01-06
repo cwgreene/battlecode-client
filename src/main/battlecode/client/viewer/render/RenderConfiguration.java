@@ -12,7 +12,7 @@ public class RenderConfiguration {
 
     private static RenderConfiguration instance = null;
 
-    private static boolean simple = false;
+    private static boolean details = false;
     private static boolean broadcast = true;
     private static boolean attack = true;
     private static boolean discrete = true;
@@ -54,7 +54,7 @@ public class RenderConfiguration {
     private RenderConfiguration() {
     }
 
-    public static void toggleSimple() { simple = !simple; }
+    public static void toggleDetails() { details = !details; }
 
     public static void toggleBroadcast() {
         broadcast = !broadcast;
@@ -128,7 +128,7 @@ public class RenderConfiguration {
         }
     }
 
-    public static boolean showDetails() { return !simple; }
+    public static boolean showDetails() { return !details; }
 
     public static boolean showBroadcast() {
         return broadcast;

@@ -55,7 +55,7 @@ public abstract class BaseRenderer {
 
         switch (actionCommand) {
             case 'A':
-                RenderConfiguration.toggleSimple();
+                RenderConfiguration.toggleDetails();
                 break;
             case 'B':
                 RenderConfiguration.toggleBroadcast();
