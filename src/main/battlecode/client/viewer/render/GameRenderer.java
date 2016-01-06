@@ -189,6 +189,7 @@ public class GameRenderer extends BaseRenderer {
         unitOffX = 0.5f * (canvasSize.width / spriteSize - unitWidth);
         unitOffY = 0.5f * (canvasSize.height / spriteSize - unitHeight);
         RenderConfiguration.getInstance().setSpriteSize(spriteSize);
+        // Resize all the sprites
     }
 
     public DrawObject getRobotByID(int id) {
